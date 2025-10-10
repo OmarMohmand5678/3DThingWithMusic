@@ -93,7 +93,7 @@ function makeAScene(){
     const ringGeometry = new THREE.RingGeometry(innerRadius, outerRadius, thetaSegments);
     ringGeometry.rotateX(Math.PI / 2);
     const rings = new THREE.Mesh(ringGeometry, ringMaterial);
-    rings.rotation.z = Math.PI / 1.07;
+    rings.rotation.z = Math.PI / 1.07;// puts the rings on an angle
     rings.material.transparent = true;
     rings.material.opacity = 0.85;
     scene.add(rings);
@@ -114,42 +114,36 @@ function makeAScene(){
     const enceladus = new THREE.Mesh(moonGeom2, moonMaterial2);
     scene.add(enceladus);
 
-    enceladus.position.set(25, 0, 0);  
-    titan.position.set(-25, 5, 0);
+    enceladus.position.x = 25;
+    titan.position.x = -25;
 
+//* Saturn rotation
+gsap.to(saturn.rotation, {
+    duration: 10,
+    y:10,
+    repeat: -1
+});
 
+//* Rings rotation (opposite direction)
+gsap.to(rings.rotation, {
+    duration: 10,
+    y: 10,
+    repeat: -1
+});
 
-     //* Saturn rotation
-    gsap.to(saturn.rotation, { 
-        duration: 20, 
-        y: "+=" + Math.PI * 2,   // full spin
-        repeat: -1, 
-        ease: "none" 
-    });
+//* Titan rotation
+gsap.to(titan.rotation, {
+    duration: 10,
+    y:10,
+    repeat: -1
+});
 
-    //* Rings rotation
-    gsap.to(rings.rotation, { 
-        duration: 20, 
-        y: "-=" + Math.PI * 2,   // opposite direction
-        repeat: -1, 
-        ease: "none" 
-    });
-
-    //* titan rotation
-    gsap.to(titan.rotation, { 
-        duration: 15, 
-        y: "+=" + Math.PI * 2, 
-        repeat: -1, 
-        ease: "none" 
-    });
-
-    //* enceladus rotation
-    gsap.to(enceladus.rotation, { 
-        duration: 18, 
-        y: "+=" + Math.PI * 2, 
-        repeat: -1, 
-        ease: "none" 
-    });
+//* Enceladus rotation
+gsap.to(enceladus.rotation, {
+    duration: 10,
+    y:10,
+    repeat: -1
+});
 
     //* lighting
     const light = new THREE.AmbientLight(0xFFFFFF, 3);
@@ -157,9 +151,10 @@ function makeAScene(){
     scene.add(light);
     renderer.setAnimationLoop(animate);
 }
+
+
 function animate(time){
     controls.update();
-    time *= 0.001;  // convert time to seconds
     renderer.render(scene, camera);
 }
 
