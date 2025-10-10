@@ -25,6 +25,7 @@ function makeAScene(){
 
     controls = new OrbitControls(camera, renderer.domElement);
 
+    //* texture loader
     const loader = new THREE.TextureLoader();
 
     //* SaturnTexture 
@@ -85,6 +86,7 @@ function makeAScene(){
     const saturnGeom = new THREE.SphereGeometry(radius, widthSegments, heightSegments);
     const saturn = new THREE.Mesh(saturnGeom, saturnMaterial);
     scene.add(saturn);
+
     //* making rings with ring geometry
 
     const innerRadius = 11; 
@@ -124,7 +126,7 @@ gsap.to(saturn.rotation, {
     repeat: -1
 });
 
-//* Rings rotation (opposite direction)
+//* Rings rotation
 gsap.to(rings.rotation, {
     duration: 10,
     y: 10,
