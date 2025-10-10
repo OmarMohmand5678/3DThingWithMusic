@@ -1,0 +1,37 @@
+{
+  "name": "3dthingwithmusic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "build": "webpack --config ./webpack.config.js --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmarMohmand5678/3DThingWithMusic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OmarMohmand5678/3DThingWithMusic/issues"
+  },
+  "homepage": "https://github.com/OmarMohmand5678/3DThingWithMusic#readme",
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/node": "^7.25.0",
+    "@babel/preset-env": "^7.25.4",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "three": "^0.180.0"
+  }
+}

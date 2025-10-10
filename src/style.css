@@ -1,0 +1,8 @@
+.smallArea{
+    width: 600px;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+    top: 300px;
+    border: 1px solid black;
+}
